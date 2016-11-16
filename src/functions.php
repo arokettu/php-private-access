@@ -2,23 +2,35 @@
 
 namespace SandFoxMe\Debug;
 
-function call_private_method($object, string $method, ...$args)
+function call_private_method($object, $method, ...$args)
 {
-    return (function ($method, ...$args) {
+    $closure = function ($method, ...$args) {
         return call_user_func_array([$this, $method], $args);
-    })->call($object, $method, ...$args);
+    };
+
+    $closure = $closure->bindTo($object, $object);
+
+    return $closure($method, ...$args);
 }
 
-function get_private_field($object, string $field)
+function get_private_field($object, $field)
 {
-    return (function ($field) {
+    $closure = function ($field) {
         return $this->$field;
-    })->call($object, $field);
+    };
+
+    $closure = $closure->bindTo($object, $object);
+
+    return $closure($field);
 }
 
-function set_private_field($object, string $field, $value)
+function set_private_field($object, $field, $value)
 {
-    return (function ($field, $value) {
+    $closure = function ($field, $value) {
         $this->$field = $value;
-    })->call($object, $field, $value);
+    };
+
+    $closure = $closure->bindTo($object, $object);
+
+    return $closure($field, $value);
 }
