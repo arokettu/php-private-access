@@ -2,15 +2,19 @@
 
 namespace SandFoxMe\Debug;
 
-function call_private_method($object, $method, ...$args)
+function call_private_method($object, $method)
 {
-    $closure = function ($method, ...$args) {
+    $args = func_get_args();
+    array_shift($args); // $object
+    array_shift($args); // $method
+
+    $closure = function ($method, $args) {
         return call_user_func_array([$this, $method], $args);
     };
 
     $closure = $closure->bindTo($object, $object);
 
-    return $closure($method, ...$args);
+    return $closure($method, $args);
 }
 
 function get_private_field($object, $field)

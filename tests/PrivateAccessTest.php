@@ -13,13 +13,22 @@ class PrivateAccessTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('SECRET2345', $result);
     }
 
-    public function testCallPrivateMethod()
+    public function testCallPrivateMethodWithArguments()
     {
         $object = new ClassWithPrivateData();
 
         $result = \SandFoxMe\Debug\call_private_method($object, 'doSomethingSecret', 'secret1', 'secret2');
 
         $this->assertEquals('secret1!secret2', $result);
+    }
+
+    public function testCallPrivateMethodWithoutArguments()
+    {
+        $object = new ClassWithPrivateData();
+
+        $result = \SandFoxMe\Debug\call_private_method($object, 'doSomethingElseSecret');
+
+        $this->assertEquals('SECRET2345', $result);
     }
 
     public function testSetPrivateField()
