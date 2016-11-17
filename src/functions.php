@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * A tool to access private fields and classes of PHP objects
+ *
+ * @author      Anton Smirnov <sandfox@sandfox.me>
+ * @copyright   Copyright (c) 2016 Anton Smirnov
+ * @license     https://opensource.org/licenses/MIT MIT License
+ */
+
 namespace SandFoxMe\Debug;
 
 function call_private_method($object, $method)
