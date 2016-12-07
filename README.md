@@ -22,6 +22,12 @@ use function SandFoxMe\Debug\call_private_method;
 get_private_field($a, 'secret'); // get $a->secret value
 set_private_field($a, 'secret', 'new secret'); // set new $a->secret value
 call_private_method($a, 'doStuff', 'whatever'); // call $a->doStuff('whatever')
+
+// Use class name to do static!
+
+get_private_field(A::class, 'secret'); // get A::$secret value
+set_private_field(A::class, 'secret', 'new secret'); // set new A::$secret value
+call_private_method(A::class, 'doStuff', 'whatever'); // call A::doStuff('whatever')
 ```
 
 ## Installation

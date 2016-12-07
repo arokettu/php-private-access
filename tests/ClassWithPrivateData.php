@@ -6,6 +6,10 @@ class ClassWithPrivateData
      * @var string private field for testing
      */
     private $secret = 'SECRET2345';
+    /**
+     * @var string private static field for testing
+     */
+    private static $staticSecret = 'STATICSECRET123';
 
     /**
      * private method for testing
@@ -30,6 +34,11 @@ class ClassWithPrivateData
         return $this->secret;
     }
 
+    private static function doStaticSecret($arg)
+    {
+        return self::$staticSecret . $arg;
+    }
+
     /**
      * some public method to avoid IDE warnings
      *
@@ -37,6 +46,6 @@ class ClassWithPrivateData
      */
     public function reveal()
     {
-        return $this->doSomethingSecret($this->secret, $this->doSomethingElseSecret());
+        return $this->doSomethingSecret(self::doStaticSecret(''), $this->doSomethingElseSecret());
     }
 }

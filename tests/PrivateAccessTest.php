@@ -39,6 +39,37 @@ class PrivateAccessTest extends PHPUnit_Framework_TestCase
 
         $result = $object->reveal();
 
-        $this->assertEquals('hahaimhaxxor!hahaimhaxxor', $result);
+        $this->assertEquals('STATICSECRET123!hahaimhaxxor', $result);
+    }
+
+    public function testGetStaticPrivateField()
+    {
+        $result = \SandFoxMe\Debug\get_private_field('ClassWithPrivateData', 'staticSecret');
+
+        $this->assertEquals('STATICSECRET123', $result);
+    }
+
+    public function testSetStaticPrivateField()
+    {
+        // ok, testing static is a pain
+        // first, save the state of the private
+        $savedSecret = \SandFoxMe\Debug\get_private_field('ClassWithPrivateData', 'staticSecret');
+
+        \SandFoxMe\Debug\set_private_field('ClassWithPrivateData', 'staticSecret', 'hahaimhaxxor');
+
+        $object = new ClassWithPrivateData();
+        $result = $object->reveal();
+
+        $this->assertEquals('hahaimhaxxor!SECRET2345', $result);
+
+        // return everything as it was
+        \SandFoxMe\Debug\set_private_field('ClassWithPrivateData', 'staticSecret', $savedSecret);
+    }
+
+    public function testCallStaticPrivateMethod()
+    {
+        $result = \SandFoxMe\Debug\call_private_method('ClassWithPrivateData', 'doStaticSecret', '111');
+
+        $this->assertEquals('STATICSECRET123111', $result);
     }
 }
