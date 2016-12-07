@@ -16,7 +16,7 @@ function call_private_method($object, $method)
     array_shift($args); // $object
     array_shift($args); // $method
 
-    $closure = function ($method, $args) use ($object) {
+    $closure = function ($object, $method, $args) {
         return call_user_func_array([$object, $method], $args);
     };
 
@@ -27,7 +27,7 @@ function call_private_method($object, $method)
         $closure = $closure->bindTo(null, $object);
     }
 
-    return $closure($method, $args);
+    return $closure($object, $method, $args);
 }
 
 function get_private_field($object, $field)
@@ -64,4 +64,10 @@ function set_private_field($object, $field, $value)
     }
 
     return $closure($field, $value);
+}
+
+function get_private_const($object, $const)
+{
+    $r = new \ReflectionClass($object);
+    return $r->getConstant($const);
 }

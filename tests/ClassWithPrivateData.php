@@ -3,6 +3,11 @@
 class ClassWithPrivateData
 {
     /**
+     * emulate secret const for php < 7.1, just to ensure that constant still can be read
+     */
+    const SECRET_CONST = 'SECRET_CONST_VALUE';
+
+    /**
      * @var string private field for testing
      */
     private $secret = 'SECRET2345';

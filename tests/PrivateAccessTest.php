@@ -2,6 +2,14 @@
 
 require_once 'ClassWithPrivateData.php';
 
+if (PHP_VERSION_ID >= 70100) {
+    // check PHP 7.1 feature
+    require_once 'ClassWithPrivateConstant.php';
+} else {
+    // emulate
+    class_alias('ClassWithPrivateData', 'ClassWithPrivateConstant');
+}
+
 class PrivateAccessTest extends PHPUnit_Framework_TestCase
 {
     public function testGetPrivateField()
@@ -71,5 +79,12 @@ class PrivateAccessTest extends PHPUnit_Framework_TestCase
         $result = \SandFoxMe\Debug\call_private_method('ClassWithPrivateData', 'doStaticSecret', '111');
 
         $this->assertEquals('STATICSECRET123111', $result);
+    }
+
+    public function testGetPrivateConstant()
+    {
+        $result = \SandFoxMe\Debug\get_private_const('ClassWithPrivateConstant', 'SECRET_CONST');
+
+        $this->assertEquals('SECRET_CONST_VALUE', $result);
     }
 }
