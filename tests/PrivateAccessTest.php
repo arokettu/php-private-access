@@ -87,4 +87,13 @@ class PrivateAccessTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('SECRET_CONST_VALUE', $result);
     }
+
+    public function testGetPrivateConstantFromObject()
+    {
+        $object = new ClassWithPrivateConstant();
+
+        $result = \SandFoxMe\Debug\get_private_const($object, 'SECRET_CONST');
+
+        $this->assertEquals('SECRET_CONST_VALUE', $result);
+    }
 }

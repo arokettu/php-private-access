@@ -18,6 +18,7 @@ These three simple functions can come in handy as helpers for something like [Ps
 use function SandFoxMe\Debug\get_private_field;
 use function SandFoxMe\Debug\set_private_field;
 use function SandFoxMe\Debug\call_private_method;
+use function SandFoxMe\Debug\get_private_const;
 
 get_private_field($a, 'secret'); // get $a->secret value
 set_private_field($a, 'secret', 'new secret'); // set new $a->secret value
@@ -28,6 +29,12 @@ call_private_method($a, 'doStuff', 'whatever'); // call $a->doStuff('whatever')
 get_private_field(A::class, 'secret'); // get A::$secret value
 set_private_field(A::class, 'secret', 'new secret'); // set new A::$secret value
 call_private_method(A::class, 'doStuff', 'whatever'); // call A::doStuff('whatever')
+
+// In PHP 7.1 you can also access private constants
+
+get_private_const($a, 'SECRET_CONST');
+// or
+get_private_const(A::class, 'SECRET_CONST');
 ```
 
 ## Installation
