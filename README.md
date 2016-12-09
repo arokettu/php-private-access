@@ -10,7 +10,7 @@ A small simple library to access private properties of the objects
 
 ## Usage
 
-These three simple functions can come in handy as helpers for something like [PsySH](http://psysh.org/)
+These four simple functions can come in handy as helpers for something like [PsySH](http://psysh.org/)
 
 ```php
 <?php
