@@ -20,12 +20,7 @@ function call_private_method($object, $method)
         return call_user_func_array([$object, $method], $args);
     };
 
-    // if $object is not an object, assume it's a class name
-    if (is_object($object)) {
-        $closure = $closure->bindTo($object, $object);
-    } else {
-        $closure = $closure->bindTo(null, $object);
-    }
+    $closure = $closure->bindTo(null, $object);
 
     return $closure($object, $method, $args);
 }
