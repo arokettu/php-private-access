@@ -4,9 +4,10 @@
 [![Packagist](https://img.shields.io/packagist/v/sandfoxme/private-access.svg?maxAge=2592000)](https://packagist.org/packages/sandfoxme/private-access)
 [![Packagist](https://img.shields.io/github/license/sandfoxme/php-private-access.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
 [![Travis](https://img.shields.io/travis/sandfoxme/php-private-access.svg?maxAge=2592000)](https://travis-ci.org/sandfoxme/php-private-access)
-[![Code Climate](https://img.shields.io/codeclimate/maintainability/sandfoxme/php-private-access.svg?maxAge=2592000)](https://codeclimate.com/github/sandfoxme/php-private-access)
 
-A small simple library to access private properties of the objects
+A small simple library to access private properties of the objects.
+Actually it's more an example of mad skillz than a useful tool.
+No Reflection API calls!
 
 ## Usage
 
@@ -51,7 +52,7 @@ Add the following to your composer.json:
 
 ### Why ``"require-dev"``?
 
-This library is for debugging with PHP consoles like PsySH. If you actually using it in some
+This library may be used for debugging or with PHP consoles like PsySH. If you are actually using it in some
 live system, you're doing something terribly wrong.
 
 ## License
