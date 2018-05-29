@@ -63,6 +63,11 @@ function set_private_field($object, $field, $value)
 
 function get_private_const($object, $const)
 {
-    $r = new \ReflectionClass($object);
-    return $r->getConstant($const);
+    $closure = function ($const) {
+        return constant('self::' . $const);
+    };
+
+    $closure = $closure->bindTo(null, $object);
+
+    return $closure($const);
 }
