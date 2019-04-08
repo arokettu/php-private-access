@@ -1,7 +1,7 @@
 PHP Private Access
 ##################
 
-.. image::  https://img.shields.io/packagist/v/sandfoxme/private-access.svg?maxAge=2592000)
+.. image::  https://img.shields.io/packagist/v/sandfoxme/private-access.svg?maxAge=2592000
    :alt:    Packagist
    :target: https://packagist.org/packages/sandfoxme/private-access
 .. image::  https://img.shields.io/github/license/sandfoxme/php-private-access.svg?maxAge=2592000
@@ -58,11 +58,15 @@ Add the following to your composer.json:
         }
     }
 
+or run::
+
+    composer require sandfoxme/private-access --dev
+
 Why ``"require-dev"``?
 ----------------------
 
-This library may be used for debugging or with PHP consoles like PsySH. If you are actually using it in some
-live system, you're doing something terribly wrong.
+This library may be used for debugging or with PHP consoles like PsySH.
+If you are actually using it in some live system, you're doing something terribly wrong.
 
 License
 =======
