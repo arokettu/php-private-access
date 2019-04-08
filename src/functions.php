@@ -8,7 +8,7 @@
  * @license     https://opensource.org/licenses/MIT MIT License
  */
 
-namespace SandFoxMe\Debug;
+namespace SandFox\Debug;
 
 function call_private_method($object, $method)
 {

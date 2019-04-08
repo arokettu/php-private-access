@@ -16,10 +16,10 @@ These four simple functions can come in handy as helpers for something like [Psy
 ```php
 <?php
 
-use function SandFoxMe\Debug\get_private_field;
-use function SandFoxMe\Debug\set_private_field;
-use function SandFoxMe\Debug\call_private_method;
-use function SandFoxMe\Debug\get_private_const;
+use function SandFox\Debug\get_private_field;
+use function SandFox\Debug\set_private_field;
+use function SandFox\Debug\call_private_method;
+use function SandFox\Debug\get_private_const;
 
 get_private_field($a, 'secret'); // get $a->secret value
 set_private_field($a, 'secret', 'new secret'); // set new $a->secret value
