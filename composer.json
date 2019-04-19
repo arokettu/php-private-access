@@ -1,6 +1,7 @@
 {
     "name": "sandfoxme/private-access",
     "description": "Simple and fast methods to read private properties and call private methods",
+    "keywords": ["debug"],
     "homepage": "https://sandfox.dev/php-private-access.html",
     "type": "library",
     "license": "MIT",
