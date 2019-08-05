@@ -24,7 +24,7 @@ These four simple functions can come in handy as helpers for something like [Psy
 * `call_private_method()`
 * `get_private_const()`
 
-Read full documentation here: <https://sandfox.dev/php-private-access.html>
+Read full documentation here: <https://sandfox.dev/php/private-access.html>
 
 ## License
 
