@@ -99,7 +99,7 @@ The library is available as open source under the terms of the `MIT License`_.
 .. _PsySH:          https://psysh.org/
 .. _MIT License:    https://opensource.org/licenses/MIT
 
-.. |Packagist|  image:: https://img.shields.io/packagist/v/sandfoxme/php-private-access.svg
+.. |Packagist|  image:: https://img.shields.io/packagist/v/sandfoxme/private-access.svg
    :target:     https://packagist.org/packages/sandfoxme/private-access
 .. |GitHub|     image:: https://img.shields.io/badge/get%20on-GitHub-informational.svg?logo=github
    :target:     https://github.com/arokettu/php-private-access
