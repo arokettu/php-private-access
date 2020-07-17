@@ -1,7 +1,7 @@
 Private Access
 ##############
 
-|Packagist| |GitHub| |Gitlab| |Bitbucket|
+|Packagist| |GitLab| |GitHub| |Bitbucket| |Gitea|
 
 A small simple library to access private properties of the objects.
 Actually it's more an example of mad skillz than a useful tool.
@@ -99,11 +99,13 @@ The library is available as open source under the terms of the `MIT License`_.
 .. _PsySH:          https://psysh.org/
 .. _MIT License:    https://opensource.org/licenses/MIT
 
-.. |Packagist|  image:: https://img.shields.io/packagist/v/sandfoxme/private-access.svg
-   :target: https://packagist.org/packages/sandfoxme/private-access
-.. |GitHub|     image:: https://img.shields.io/badge/GitHub-php--private--access-informational.svg?logo=github
-   :target: https://github.com/sandfoxme/php-private-access
-.. |Gitlab|     image:: https://img.shields.io/badge/Gitlab-php--private--access-informational.svg?logo=gitlab
-   :target: https://gitlab.com/sandfox/php-private-access
-.. |Bitbucket|  image:: https://img.shields.io/badge/Bitbucket-php--private--access-informational.svg?logo=bitbucket
-   :target: https://bitbucket.org/sandfox/php-private-access
+.. |Packagist|  image:: https://img.shields.io/packagist/v/sandfoxme/php-private-access.svg
+   :target:     https://packagist.org/packages/sandfoxme/private-access
+.. |GitHub|     image:: https://img.shields.io/badge/get%20on-GitHub-informational.svg?logo=github
+   :target:     https://github.com/arokettu/php-private-access
+.. |GitLab|     image:: https://img.shields.io/badge/get%20on-GitLab-informational.svg?logo=gitlab
+   :target:     https://gitlab.com/sandfox/php-private-access
+.. |Bitbucket|  image:: https://img.shields.io/badge/get%20on-Bitbucket-informational.svg?logo=bitbucket
+   :target:     https://bitbucket.org/sandfox/php-private-access
+.. |Gitea|      image:: https://img.shields.io/badge/get%20on-Gitea-informational.svg
+   :target:     https://sandfox.org/sandfox/php-private-access
