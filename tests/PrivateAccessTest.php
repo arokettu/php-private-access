@@ -10,7 +10,11 @@ if (PHP_VERSION_ID >= 70100) {
     class_alias('ClassWithPrivateData', 'ClassWithPrivateConstant');
 }
 
-class PrivateAccessTest extends PHPUnit_Framework_TestCase
+if (!class_exists('PHPUnit\Framework\TestCase')) {
+    class_alias('PHPUnit_Framework_TestCase', 'PHPUnit\Framework\TestCase');
+}
+
+class PrivateAccessTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetPrivateField()
     {
