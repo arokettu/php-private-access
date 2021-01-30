@@ -13,14 +13,11 @@ namespace SandFox\Debug;
 /**
  * @param object|string|array $object Object or class name or [object, className]
  * @param string $method
+ * @param mixed ...$args
  * @return mixed
  */
-function call_private_method($object, $method)
+function call_private_method($object, $method, ...$args)
 {
-    $args = func_get_args();
-    array_shift($args); // $object
-    array_shift($args); // $method
-
     if (is_array($object)) {
         list($object, $className) = $object;
     } else {
@@ -30,12 +27,12 @@ function call_private_method($object, $method)
     // if $object is not an object, assume it's a class name
     if (is_object($object)) {
         $closure = function ($method, $args) {
-            return call_user_func_array([$this, $method], $args);
+            return $this->$method(...$args);
         };
         $closure = $closure->bindTo($object, $className);
     } else {
-        $closure = function ($method, $args) use ($className) {
-            return call_user_func_array([$className, $method], $args);
+        $closure = function ($method, $args) {
+            return self::$method(...$args);
         };
         $closure = $closure->bindTo(null, $className);
     }
