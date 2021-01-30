@@ -1,8 +1,8 @@
 # PHP Private Access
 
-[![Packagist](https://img.shields.io/packagist/v/sandfoxme/private-access.svg?maxAge=2592000)](https://packagist.org/packages/sandfoxme/private-access)
-[![License](https://img.shields.io/packagist/l/sandfoxme/private-access.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
-[![Travis](https://img.shields.io/travis/arokettu/php-private-access.svg?maxAge=2592000)](https://travis-ci.org/sandfoxme/php-private-access)
+[![Packagist](https://img.shields.io/packagist/v/sandfoxme/private-access.svg?style=flat-square)](https://packagist.org/packages/sandfoxme/private-access)
+[![License](https://img.shields.io/packagist/l/sandfoxme/private-access.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Travis](https://img.shields.io/travis/arokettu/php-private-access.svg?style=flat-square)](https://travis-ci.org/sandfoxme/php-private-access)
 
 A small simple library to access private properties of the objects.
 Actually it's more an example of mad skillz than a useful tool.
