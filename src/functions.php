@@ -27,13 +27,20 @@ function call_private_method($object, $method)
         $className = $object;
     }
 
-    $closure = function ($object, $method, $args) {
-        return call_user_func_array([$object, $method], $args);
-    };
+    // if $object is not an object, assume it's a class name
+    if (is_object($object)) {
+        $closure = function ($method, $args) {
+            return call_user_func_array([$this, $method], $args);
+        };
+        $closure = $closure->bindTo($object, $className);
+    } else {
+        $closure = function ($method, $args) use ($className) {
+            return call_user_func_array([$className, $method], $args);
+        };
+        $closure = $closure->bindTo(null, $className);
+    }
 
-    $closure = $closure->bindTo(null, $className);
-
-    return $closure($object, $method, $args);
+    return $closure($method, $args);
 }
 
 /**
