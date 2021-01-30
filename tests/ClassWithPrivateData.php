@@ -1,6 +1,6 @@
 <?php
 
-class ClassWithPrivateData
+class ClassWithPrivateData extends InnerClassWithPrivateData
 {
     /**
      * emulate secret const for php < 7.1, just to ensure that constant still can be read
@@ -49,6 +49,32 @@ class ClassWithPrivateData
      *
      * @return string
      */
+    public function reveal()
+    {
+        return $this->doSomethingSecret(self::doStaticSecret(''), $this->doSomethingElseSecret());
+    }
+}
+
+class InnerClassWithPrivateData
+{
+    private $secret = 'INNER_SECRET2345';
+    private static $staticSecret = 'INNER_STATICSECRET123';
+
+    private function doSomethingSecret($arg1, $arg2)
+    {
+        return $arg2 . '!' . $arg1;
+    }
+
+    private function doSomethingElseSecret()
+    {
+        return $this->secret;
+    }
+
+    private static function doStaticSecret($arg)
+    {
+        return self::$staticSecret . $arg;
+    }
+
     public function reveal()
     {
         return $this->doSomethingSecret(self::doStaticSecret(''), $this->doSomethingElseSecret());
