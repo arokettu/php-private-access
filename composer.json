@@ -16,8 +16,7 @@
     },
     "autoload": {
         "files": [
-            "src/functions.php",
-            "legacy.php"
+            "src/functions.php"
         ]
     },
     "autoload-dev": {

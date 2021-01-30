@@ -4,20 +4,25 @@ namespace Sandfox\Debug\PrivateAccess\Tests;
 
 use ClassWithPrivateConstant;
 use ClassWithPrivateData;
+use PHPUnit\Framework\TestCase;
 
-class PrivateAccessTest extends \PHPUnit\Framework\TestCase
+use function SandFox\Debug\call_private_method;
+use function SandFox\Debug\get_private_const;
+use function SandFox\Debug\get_private_field;
+use function SandFox\Debug\set_private_field;
+
+class PrivateAccessTest extends TestCase
 {
     public function testGetPrivateField()
     {
         $object = new ClassWithPrivateData();
 
-        $result = \SandFoxMe\Debug\get_private_field($object, 'secret');
+        $result = get_private_field($object, 'secret');
         $this->assertEquals('SECRET2345', $result);
 
-        $result = \SandFoxMe\Debug\get_private_field(
+        $result = get_private_field(
             [$object, 'InnerClassWithPrivateData'],
-            'secret',
-            'InnerClassWithPrivateData'
+            'secret'
         );
         $this->assertEquals('INNER_SECRET2345', $result);
     }
@@ -26,10 +31,10 @@ class PrivateAccessTest extends \PHPUnit\Framework\TestCase
     {
         $object = new ClassWithPrivateData();
 
-        $result = \SandFoxMe\Debug\call_private_method($object, 'doSomethingSecret', 'secret1', 'secret2');
+        $result = call_private_method($object, 'doSomethingSecret', 'secret1', 'secret2');
         $this->assertEquals('secret1!secret2', $result);
 
-        $result = \SandFoxMe\Debug\call_private_method(
+        $result = call_private_method(
             [$object, 'InnerClassWithPrivateData'],
             'doSomethingSecret',
             'secret1',
@@ -42,10 +47,10 @@ class PrivateAccessTest extends \PHPUnit\Framework\TestCase
     {
         $object = new ClassWithPrivateData();
 
-        $result = \SandFoxMe\Debug\call_private_method($object, 'doSomethingElseSecret');
+        $result = call_private_method($object, 'doSomethingElseSecret');
         $this->assertEquals('SECRET2345', $result);
 
-        $result = \SandFoxMe\Debug\call_private_method(
+        $result = call_private_method(
             [$object, 'InnerClassWithPrivateData'],
             'doSomethingElseSecret'
         );
@@ -56,11 +61,11 @@ class PrivateAccessTest extends \PHPUnit\Framework\TestCase
     {
         $object = new ClassWithPrivateData();
 
-        \SandFoxMe\Debug\set_private_field($object, 'secret', 'hahaimhaxxor');
+        set_private_field($object, 'secret', 'hahaimhaxxor');
         $result = $object->reveal();
         $this->assertEquals('STATICSECRET123!hahaimhaxxor', $result);
 
-        \SandFoxMe\Debug\set_private_field(
+        set_private_field(
             [$object, 'InnerClassWithPrivateData'],
             'secret',
             'hahaimhaxxor'
@@ -71,7 +76,7 @@ class PrivateAccessTest extends \PHPUnit\Framework\TestCase
 
     public function testGetStaticPrivateField()
     {
-        $result = \SandFoxMe\Debug\get_private_field('ClassWithPrivateData', 'staticSecret');
+        $result = get_private_field('ClassWithPrivateData', 'staticSecret');
 
         $this->assertEquals('STATICSECRET123', $result);
     }
@@ -80,9 +85,9 @@ class PrivateAccessTest extends \PHPUnit\Framework\TestCase
     {
         // ok, testing static is a pain
         // first, save the state of the private
-        $savedSecret = \SandFoxMe\Debug\get_private_field('ClassWithPrivateData', 'staticSecret');
+        $savedSecret = get_private_field('ClassWithPrivateData', 'staticSecret');
 
-        \SandFoxMe\Debug\set_private_field('ClassWithPrivateData', 'staticSecret', 'hahaimhaxxor');
+        set_private_field('ClassWithPrivateData', 'staticSecret', 'hahaimhaxxor');
 
         $object = new ClassWithPrivateData();
         $result = $object->reveal();
@@ -90,19 +95,19 @@ class PrivateAccessTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('hahaimhaxxor!SECRET2345', $result);
 
         // return everything as it was
-        \SandFoxMe\Debug\set_private_field('ClassWithPrivateData', 'staticSecret', $savedSecret);
+        set_private_field('ClassWithPrivateData', 'staticSecret', $savedSecret);
     }
 
     public function testCallStaticPrivateMethod()
     {
-        $result = \SandFoxMe\Debug\call_private_method('ClassWithPrivateData', 'doStaticSecret', '111');
+        $result = call_private_method('ClassWithPrivateData', 'doStaticSecret', '111');
 
         $this->assertEquals('STATICSECRET123111', $result);
     }
 
     public function testGetPrivateConstant()
     {
-        $result = \SandFoxMe\Debug\get_private_const('ClassWithPrivateConstant', 'SECRET_CONST');
+        $result = get_private_const('ClassWithPrivateConstant', 'SECRET_CONST');
 
         $this->assertEquals('SECRET_CONST_VALUE', $result);
     }
@@ -111,7 +116,7 @@ class PrivateAccessTest extends \PHPUnit\Framework\TestCase
     {
         $object = new ClassWithPrivateConstant();
 
-        $result = \SandFoxMe\Debug\get_private_const($object, 'SECRET_CONST');
+        $result = get_private_const($object, 'SECRET_CONST');
 
         $this->assertEquals('SECRET_CONST_VALUE', $result);
     }
