@@ -23,7 +23,15 @@ These four simple functions can come in handy as helpers for something like [Psy
 * `call_private_method()`
 * `get_private_const()`
 
+## Documentation
+
 Read full documentation here: <https://sandfox.dev/php/private-access.html>
+
+Also on Read the Docs: <https://php-private-access.readthedocs.io/>
+
+## Support
+
+Please file issues on our main repo at GitLab: <https://gitlab.com/sandfox/php-private-access/-/issues>
 
 ## License
 
