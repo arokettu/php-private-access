@@ -2,7 +2,7 @@
 
 [![Packagist](https://img.shields.io/packagist/v/sandfoxme/private-access.svg?style=flat-square)](https://packagist.org/packages/sandfoxme/private-access)
 [![License](https://img.shields.io/packagist/l/sandfoxme/private-access.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/sandfox/php-private-access.svg/master.svg?style=flat-square)](https://gitlab.com/sandfox/php-private-access/-/pipelines)
+[![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/sandfox/php-private-access/master.svg?style=flat-square)](https://gitlab.com/sandfox/php-private-access/-/pipelines)
 
 A small simple library to access private properties of the objects.
 Actually it's more an example of mad skillz than a useful tool.
