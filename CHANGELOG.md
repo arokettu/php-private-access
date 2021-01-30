@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0
+
+_Jan 30, 2021_
+
+* Allow access to private stuff from parent classes
+* Require PHP 5.6
+* Legacy namespace `SandFoxMe\Debug` was removed
+
 ## 1.3.0
 
 _Apr 9, 2019_
