@@ -75,7 +75,7 @@ class InnerClassWithPrivateData
         return self::$staticSecret . $arg;
     }
 
-    public function reveal()
+    public function innerReveal()
     {
         return $this->doSomethingSecret(self::doStaticSecret(''), $this->doSomethingElseSecret());
     }

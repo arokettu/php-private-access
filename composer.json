@@ -20,6 +20,11 @@
             "legacy.php"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Sandfox\\Debug\\PrivateAccess\\Tests\\": "tests"
+        }
+    },
     "require": {
         "php": ">= 5.4.6"
     },

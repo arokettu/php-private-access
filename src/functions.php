@@ -10,57 +10,96 @@
 
 namespace SandFox\Debug;
 
+/**
+ * @param object|string|array $object Object or class name or [object, className]
+ * @param string $method
+ * @return mixed
+ */
 function call_private_method($object, $method)
 {
     $args = func_get_args();
     array_shift($args); // $object
     array_shift($args); // $method
 
+    if (is_array($object)) {
+        list($object, $className) = $object;
+    } else {
+        $className = $object;
+    }
+
     $closure = function ($object, $method, $args) {
         return call_user_func_array([$object, $method], $args);
     };
 
-    $closure = $closure->bindTo(null, $object);
+    $closure = $closure->bindTo(null, $className);
 
     return $closure($object, $method, $args);
 }
 
+/**
+ * @param object|string|array $object Object or class name or [object, className]
+ * @param string $field
+ * @return mixed
+ */
 function get_private_field($object, $field)
 {
+    if (is_array($object)) {
+        list($object, $className) = $object;
+    } else {
+        $className = $object;
+    }
+
     // if $object is not an object, assume it's a class name
     if (is_object($object)) {
         $closure = function ($field) {
             return $this->$field;
         };
-        $closure = $closure->bindTo($object, $object);
+        $closure = $closure->bindTo($object, $className);
     } else {
         $closure = function ($field) {
             return self::$$field;
         };
-        $closure = $closure->bindTo(null, strval($object));
+        $closure = $closure->bindTo(null, $className);
     }
 
     return $closure($field);
 }
 
+/**
+ * @param object|string|array $object Object or class name or [object, className]
+ * @param string $field
+ * @param mixed $value
+ * @return void
+ */
 function set_private_field($object, $field, $value)
 {
+    if (is_array($object)) {
+        list($object, $className) = $object;
+    } else {
+        $className = $object;
+    }
+
     // if $object is not an object, assume it's a class name
     if (is_object($object)) {
         $closure = function ($field, $value) {
             $this->$field = $value;
         };
-        $closure = $closure->bindTo($object, $object);
+        $closure = $closure->bindTo($object, $className);
     } else {
         $closure = function ($field, $value) {
             self::$$field = $value;
         };
-        $closure = $closure->bindTo(null, strval($object));
+        $closure = $closure->bindTo(null, $className);
     }
 
-    return $closure($field, $value);
+    $closure($field, $value);
 }
 
+/**
+ * @param object|string $object
+ * @param string $const
+ * @return mixed
+ */
 function get_private_const($object, $const)
 {
     $closure = function ($const) {
