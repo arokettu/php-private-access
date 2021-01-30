@@ -29,6 +29,29 @@ These four simple functions can come in handy as helpers for something like PsyS
 
 .. note:: All functions also work with protected and public visibilities
 
+Class examples:
+
+.. code-block:: php
+
+    <?php
+
+    class A extends B
+    {
+        private const SECRET_CONST = '';
+        private $secret;
+        private static $staticSecret;
+        private function doStuff() {}
+        private static function doStaticStuff() {}
+    }
+
+    class B
+    {
+        private $secret;
+        private function doStuff() {}
+    }
+
+    $a = new A();
+
 ``get_private_field``
 ---------------------
 
@@ -40,8 +63,9 @@ Get value of a private field
 
     use function SandFox\Debug\get_private_field;
 
-    get_private_field($a,       'secret'); // get $a->secret value
-    get_private_field(A::class, 'secret'); // get A::$secret value
+    get_private_field($a, 'secret'); // get $a->A::secret value
+    get_private_field(A::class, 'staticSecret'); // get A::$staticSecret value
+    get_private_field([$a, B::class], 'secret'); // get $a->B::$secret value
 
 ``set_private_field``
 ---------------------
@@ -54,8 +78,9 @@ Set value of a private field
 
     use function SandFox\Debug\set_private_field;
 
-    set_private_field($a,       'secret', 'new secret'); // set new $a->secret value
-    set_private_field(A::class, 'secret', 'new secret'); // set new A::$secret value
+    set_private_field($a, 'secret', 'new secret'); // set new $a->A::secret value
+    set_private_field(A::class, 'staticSecret', 'new secret'); // set new A::$staticSecret value
+    set_private_field([$a, B::class], 'secret', 'new secret'); // set new $a->B::$secret value
 
 ``call_private_method``
 -----------------------
@@ -68,8 +93,9 @@ Call private method
 
     use function SandFox\Debug\call_private_method;
 
-    call_private_method($a,       'doStuff', 'whatever'); // call $a->doStuff('whatever')
-    call_private_method(A::class, 'doStuff', 'whatever'); // call A::doStuff('whatever')
+    call_private_method($a, 'doStuff', 'whatever'); // call $a->A::doStuff('whatever')
+    call_private_method(A::class, 'doStaticStuff', 'whatever'); // call A::doStaticStuff('whatever')
+    call_private_method([$a, B::class], 'doStuff', 'whatever'); // call $a->B::doStuff('whatever')
 
 ``get_private_const``
 ---------------------
@@ -86,7 +112,7 @@ Get value of a private constant
 
     use function SandFox\Debug\get_private_const;
 
-    get_private_const($a,       'SECRET_CONST');
+    get_private_const($a, 'SECRET_CONST');
     // or
     get_private_const(A::class, 'SECRET_CONST');
 
