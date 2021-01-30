@@ -11,6 +11,9 @@
             "email": "sandfox@sandfox.me"
         }
     ],
+    "config": {
+        "sort-packages": true
+    },
     "autoload": {
         "files": [
             "src/functions.php",
@@ -21,7 +24,10 @@
         "php": ">= 5.4.6"
     },
     "require-dev": {
-        "phpunit/phpunit":  "^4.8.36 | >= 6.0 < 10",
-        "psy/psysh":        "*"
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "phpcompatibility/php-compatibility": "*",
+        "phpunit/phpunit": "^4.8.36 | >= 6.0 < 10",
+        "psy/psysh": "*",
+        "squizlabs/php_codesniffer": "*"
     }
 }

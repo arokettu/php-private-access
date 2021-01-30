@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+    @see https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-Ruleset
+-->
+<ruleset name="Custom Standard" namespace="MyProject\CS\Standard">
+    <rule ref="PSR12"/>
+    <rule ref="PHPCompatibility">
+        <!-- That's the library essential quirk -->
+        <exclude name="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFoundOutsideClass"/>
+    </rule>
+    <config name="testVersion" value="5.4-"/>
+    <file>src</file>
+    <file>tests</file>
+    <exclude-pattern>*/tests/classes/*</exclude-pattern>
+</ruleset>
