@@ -1,15 +1,15 @@
 <?php
 
-namespace Sandfox\Debug\PrivateAccess\Tests;
+namespace Arokettu\Debug\PrivateAccess\Tests;
 
 use ClassWithPrivateConstant;
 use ClassWithPrivateData;
 use PHPUnit\Framework\TestCase;
 
-use function SandFox\Debug\call_private_method;
-use function SandFox\Debug\get_private_const;
-use function SandFox\Debug\get_private_field;
-use function SandFox\Debug\set_private_field;
+use function Arokettu\Debug\call_private_method;
+use function Arokettu\Debug\get_private_const;
+use function Arokettu\Debug\get_private_field;
+use function Arokettu\Debug\set_private_field;
 
 class PrivateAccessTest extends TestCase
 {

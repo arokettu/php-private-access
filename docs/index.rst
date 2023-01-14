@@ -14,7 +14,7 @@ Use composer:
 
 .. code-block:: bash
 
-    composer require sandfoxme/private-access --dev
+    composer require arokettu/private-access --dev
 
 Why ``--dev``?
 --------------
@@ -61,7 +61,7 @@ Get value of a private field
 
     <?php
 
-    use function SandFox\Debug\get_private_field;
+    use function Arokettu\Debug\get_private_field;
 
     get_private_field($a, 'secret'); // get $a->A::secret value
     get_private_field(A::class, 'staticSecret'); // get A::$staticSecret value
@@ -76,7 +76,7 @@ Set value of a private field
 
     <?php
 
-    use function SandFox\Debug\set_private_field;
+    use function Arokettu\Debug\set_private_field;
 
     set_private_field($a, 'secret', 'new secret'); // set new $a->A::secret value
     set_private_field(A::class, 'staticSecret', 'new secret'); // set new A::$staticSecret value
@@ -91,7 +91,7 @@ Call private method
 
     <?php
 
-    use function SandFox\Debug\call_private_method;
+    use function Arokettu\Debug\call_private_method;
 
     call_private_method($a, 'doStuff', 'whatever'); // call $a->A::doStuff('whatever')
     call_private_method(A::class, 'doStaticStuff', 'whatever'); // call A::doStaticStuff('whatever')
@@ -110,7 +110,7 @@ Get value of a private constant
 
     <?php
 
-    use function SandFox\Debug\get_private_const;
+    use function Arokettu\Debug\get_private_const;
 
     get_private_const($a, 'SECRET_CONST');
     // or
@@ -125,8 +125,8 @@ The library is available as open source under the terms of the `MIT License`_.
 .. _PsySH:          https://psysh.org/
 .. _MIT License:    https://opensource.org/licenses/MIT
 
-.. |Packagist|  image:: https://img.shields.io/packagist/v/sandfoxme/private-access.svg?style=flat-square
-   :target:     https://packagist.org/packages/sandfoxme/private-access
+.. |Packagist|  image:: https://img.shields.io/packagist/v/arokettu/private-access.svg?style=flat-square
+   :target:     https://packagist.org/packages/arokettu/private-access
 .. |GitHub|     image:: https://img.shields.io/badge/get%20on-GitHub-informational.svg?style=flat-square&logo=github
    :target:     https://github.com/arokettu/php-private-access
 .. |GitLab|     image:: https://img.shields.io/badge/get%20on-GitLab-informational.svg?style=flat-square&logo=gitlab

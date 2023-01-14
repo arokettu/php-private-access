@@ -1,5 +1,5 @@
 {
-    "name": "sandfoxme/private-access",
+    "name": "arokettu/private-access",
     "description": "Simple and fast methods to read private properties and call private methods",
     "keywords": ["debug", "dev"],
     "homepage": "https://sandfox.dev/php/private-access.html",
@@ -31,7 +31,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Sandfox\\Debug\\PrivateAccess\\Tests\\": "tests"
+            "Arokettu\\Debug\\PrivateAccess\\Tests\\": "tests"
         }
     },
     "require": {

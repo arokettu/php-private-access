@@ -8,7 +8,7 @@
  * @license     https://opensource.org/licenses/MIT MIT License
  */
 
-namespace SandFox\Debug;
+namespace Arokettu\Debug;
 
 /**
  * @param object|string|array $object Object or class name or [object, className]

@@ -1,7 +1,7 @@
 # PHP Private Access
 
-[![Packagist](https://img.shields.io/packagist/v/sandfoxme/private-access.svg?style=flat-square)](https://packagist.org/packages/sandfoxme/private-access)
-[![License](https://img.shields.io/packagist/l/sandfoxme/private-access.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Packagist](https://img.shields.io/packagist/v/arokettu/private-access.svg?style=flat-square)](https://packagist.org/packages/arokettu/private-access)
+[![License](https://img.shields.io/packagist/l/arokettu/private-access.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/sandfox/php-private-access/master.svg?style=flat-square)](https://gitlab.com/sandfox/php-private-access/-/pipelines)
 
 A small simple library to access private properties of the objects.
@@ -12,7 +12,7 @@ No Reflection API calls!
 
 Use composer:
 
-    composer require sandfoxme/private-access --dev
+    composer require arokettu/private-access --dev
 
 ## Usage
 
