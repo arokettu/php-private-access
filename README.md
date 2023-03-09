@@ -23,6 +23,21 @@ These four simple functions can come in handy as helpers for something like [Psy
 * `call_private_method()`
 * `get_private_const()`
 
+## Example
+
+```php
+<?php
+
+class X {
+    private $field = 123;
+}
+
+$x = new X();
+
+var_dump(\Arokettu\Debug\get_private_field($x, 'field')); // 123
+\Arokettu\Debug\set_private_field($x, 'field', 321); // $x->field = 321;
+```
+
 ## Documentation
 
 Read full documentation here: <https://sandfox.dev/php/private-access.html>
