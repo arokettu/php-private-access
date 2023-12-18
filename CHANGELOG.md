@@ -6,6 +6,8 @@
 
 *Jan 14, 2023*
 
+Branched from 2.0.0
+
 * The package was renamed to arokettu/private-access
 * The namespace now is `Arokettu\Debug`
 
@@ -14,6 +16,8 @@
 ### 2.0.0
 
 *Jan 30, 2021*
+
+Branched from 1.3.0
 
 * Allow access to private stuff from parent classes
 * Require PHP 5.6
