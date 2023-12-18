@@ -23,27 +23,14 @@ cache:
     - composer update
     - vendor/bin/phpunit
 
-# lowest version
-test-5.6:
+# main matrix
+test:
   extends: .test
   stage: test
-  image: php:5.6
-
-# latest PHP 7
-test-7:
-  extends: .test
-  stage: test
-  image: php:7
-
-# latest PHP 8
-test-8:
-  extends: .test
-  stage: test
-  image: php:8
-
-# latest unstable
-test-rc:
-  extends: .test
-  stage: test
-  image: php:rc
-  allow_failure: true
+  image: php:${PHP_VERSION}
+  parallel:
+    matrix:
+      - PHP_VERSION:
+          - '7.1' # lowest tested
+          - '7' # latest PHP 7
+          - '8' # latest 8
