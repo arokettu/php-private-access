@@ -4,11 +4,7 @@
 -->
 <ruleset name="Custom Standard" namespace="MyProject\CS\Standard">
     <rule ref="PSR12"/>
-    <rule ref="PHPCompatibility">
-        <!-- That's the library essential quirk -->
-        <exclude name="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFoundOutsideClass"/>
-    </rule>
-    <config name="testVersion" value="5.6-"/>
+    <config name="php_version" value="50600"/>
     <file>src</file>
     <file>tests</file>
     <exclude-pattern>*/tests/classes/*</exclude-pattern>

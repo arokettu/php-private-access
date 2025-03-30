@@ -39,7 +39,6 @@
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "*",
-        "phpcompatibility/php-compatibility": "*",
         "phpunit/phpunit": "^4.8.36 | >= 6.0 < 10",
         "psy/psysh": "*",
         "squizlabs/php_codesniffer": "*"
