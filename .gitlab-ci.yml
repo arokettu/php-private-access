@@ -31,6 +31,6 @@ test:
   parallel:
     matrix:
       - PHP_VERSION:
-          - '7.1' # lowest tested
+          - '7.3' # lowest tested
           - '7' # latest PHP 7
           - '8' # latest 8
