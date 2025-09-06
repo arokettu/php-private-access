@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @copyright 2016 Anton Smirnov
+ * @license MIT https://spdx.org/licenses/MIT.html
+ */
+
 namespace Arokettu\Debug\PrivateAccess\Tests;
 
 use ClassWithPrivateConstant;

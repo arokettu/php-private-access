@@ -3,9 +3,8 @@
 /**
  * A tool to access private fields and classes of PHP objects
  *
- * @author      Anton Smirnov <sandfox@sandfox.me>
- * @copyright   Copyright (c) 2016 Anton Smirnov
- * @license     https://opensource.org/licenses/MIT MIT License
+ * @copyright 2016 Anton Smirnov
+ * @license MIT https://spdx.org/licenses/MIT.html
  */
 
 namespace Arokettu\Debug;
