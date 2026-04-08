@@ -85,6 +85,8 @@ Set value of a private field
 ``unset_private_field``
 ---------------------
 
+.. versionadded:: 3.1
+
 Unset value of a private field
 
 .. code-block:: php
