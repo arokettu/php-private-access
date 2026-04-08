@@ -16,10 +16,11 @@ Use composer:
 
 ## Usage
 
-These four simple functions can come in handy as helpers for something like [PsySH]
+These simple functions can come in handy as helpers for some development or test code.
 
 * `get_private_field()`
 * `set_private_field()`
+* `unset_private_field()`
 * `call_private_method()`
 * `get_private_const()`
 
@@ -52,5 +53,4 @@ Please file issues on our main repo at GitLab: <https://gitlab.com/sandfox/php-p
 
 The library is available as open source under the terms of the [MIT License].
 
-[PsySH]: https://psysh.org/
 [MIT License]: https://opensource.org/licenses/MIT

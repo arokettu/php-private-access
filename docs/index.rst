@@ -82,6 +82,20 @@ Set value of a private field
     set_private_field(A::class, 'staticSecret', 'new secret'); // set new A::$staticSecret value
     set_private_field([$a, B::class], 'secret', 'new secret'); // set new $a->B::$secret value
 
+``unset_private_field``
+---------------------
+
+Unset value of a private field
+
+.. code-block:: php
+
+    <?php
+
+    use function Arokettu\Debug\unset_private_field;
+
+    unset_private_field($a, 'secret'); // unset new $a->A::secret value
+    unset_private_field([$a, B::class], 'secret'); // unset new $a->B::$secret value
+
 ``call_private_method``
 -----------------------
 
