@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-    @see https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-Ruleset
--->
 <ruleset>
     <rule ref="PSR12"/>
     <config name="php_version" value="50600"/>
