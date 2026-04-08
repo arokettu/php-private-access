@@ -99,6 +99,28 @@ function set_private_field($object, $field, $value)
 }
 
 /**
+ * @param object|string|array $object Object or [object, className]
+ * @param string $field
+ * @return void
+ */
+function unset_private_field($object, $field)
+{
+    if (is_array($object)) {
+        list($object, $className) = $object;
+    } else {
+        $className = $object;
+    }
+
+    // if $object is not an object, assume it's a class name
+    $closure = function ($field) {
+        unset($this->$field);
+    };
+    $closure = $closure->bindTo($object, $className);
+
+    $closure($field);
+}
+
+/**
  * @param object|string $object
  * @param string $const
  * @return mixed

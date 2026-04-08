@@ -9,12 +9,15 @@ namespace Arokettu\Debug\PrivateAccess\Tests;
 
 use ClassWithPrivateConstant;
 use ClassWithPrivateData;
+use Closure;
+use InnerClassWithPrivateData;
 use PHPUnit\Framework\TestCase;
 
 use function Arokettu\Debug\call_private_method;
 use function Arokettu\Debug\get_private_const;
 use function Arokettu\Debug\get_private_field;
 use function Arokettu\Debug\set_private_field;
+use function Arokettu\Debug\unset_private_field;
 
 class PrivateAccessTest extends TestCase
 {
@@ -77,6 +80,27 @@ class PrivateAccessTest extends TestCase
         );
         $result = $object->innerReveal();
         $this->assertEquals('hahaimhaxxor!INNER_STATICSECRET123', $result);
+    }
+
+    public function testUnsetPrivateField()
+    {
+        $object = new ClassWithPrivateData();
+
+        $check1 = Closure::bind(function () {
+            return isset($this->secret);
+        }, $object, $object);
+
+        self::assertTrue($check1());
+        unset_private_field($object, 'secret');
+        self::assertFalse($check1());
+
+        $check2 = Closure::bind(function () {
+            return isset($this->secret);
+        }, $object, InnerClassWithPrivateData::class);
+
+        self::assertTrue($check2());
+        unset_private_field([$object, InnerClassWithPrivateData::class], 'secret');
+        self::assertFalse($check2());
     }
 
     public function testGetStaticPrivateField()
